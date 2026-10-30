@@ -1,0 +1,171 @@
+@import "tailwindcss";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *, .dark, .dark *));
+
+:root {
+  --bg: #ffffff;
+  --surface: #f6f4f1;
+  --ink: #141210;
+  --mute: #6b6761;
+  --line: #e8e4de;
+  --accent: #ff4a00;
+  --accent-hover: #e04200;
+  --card: #ffffff;
+  --shadow: 0 20px 50px -24px rgba(20, 18, 16, 0.35);
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+:root[data-theme="dark"] {
+  --bg: #0f0e0d;
+  --surface: #1a1816;
+  --ink: #f5f2ee;
+  --mute: #a09a92;
+  --line: #2c2926;
+  --card: #171513;
+  --shadow: 0 20px 50px -24px rgba(0, 0, 0, 0.8);
+  color-scheme: dark;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .brand, .font-heading {
+  font-family: "Bricolage Grotesque", "DM Sans", system-ui, sans-serif;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+.wrap {
+  width: min(1180px, 92%);
+  margin: 0 auto;
+}
+
+/* Animations from the original page */
+@keyframes rise {
+  to {
+    transform: none;
+  }
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pop {
+  to {
+    transform: scale(1);
+  }
+}
+
+.hero-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+}
+
+.hero-word-inner {
+  display: inline-block;
+  font-style: normal;
+  transform: translateY(110%);
+  animation: rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.hero-fade-sub {
+  opacity: 0;
+  animation: fade 0.8s 1.05s forwards;
+}
+
+.hero-fade-cta {
+  opacity: 0;
+  animation: fade 0.8s 1.25s forwards;
+}
+
+.arrow-path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 13;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: draw 1.6s 0.45s cubic-bezier(0.6, 0, 0.2, 1) forwards;
+}
+
+.arrow-circle {
+  fill: var(--ink);
+  transform: scale(0);
+  transform-origin: 20px 20px;
+  animation: pop 0.5s 1.85s cubic-bezier(0.3, 1.6, 0.5, 1) forwards;
+}
+
+/* Interactive browser page scroll on hover */
+.browser-page {
+  padding: 14px;
+  transition: transform 2.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.project-card:hover .browser-page,
+.project-card:focus-visible .browser-page {
+  transform: translateY(-150px);
+}
+
+.project-card:hover .visit-arrow,
+.project-card:focus-visible .visit-arrow {
+  transform: translate(4px, -4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hero-word-inner,
+  .hero-fade-sub,
+  .hero-fade-cta {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .arrow-path {
+    stroke-dashoffset: 0 !important;
+  }
+  .arrow-circle {
+    transform: none !important;
+  }
+  .browser-page {
+    transform: none !important;
+  }
+}

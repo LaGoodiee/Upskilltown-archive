@@ -1,0 +1,6 @@
+{
+  "name": "Upskilltown Agency",
+  "description": "Websites and landing pages that turn visitors into customers. Crafted by Upskilltown Agency.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
