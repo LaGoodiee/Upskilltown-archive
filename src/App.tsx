@@ -110,7 +110,7 @@ export default function App() {
     name: '',
     email: '',
     projectType: 'Multi-page website',
-    budget: '$500 – $1,500',
+    budget: '#15000',
     details: '',
   });
 
@@ -485,8 +485,8 @@ export default function App() {
         <section className="wrap my-8 mb-20" id="contact">
           <div className="bg-[#ff4a00] text-white rounded-[32px] p-8 sm:p-14 lg:p-18 flex justify-between items-center gap-8 flex-wrap shadow-[0_24px_50px_-20px_rgba(255,74,0,0.45)]">
             <div className="max-w-[20em]">
-              <span className="text-white/80 font-semibold tracking-wider text-xs uppercase mb-2 inline-block">
-                Ready to stand out?
+              <span className="text-white/85 font-semibold tracking-wider text-xs uppercase mb-2 inline-block">
+                Starting from #15000 · Ready to stand out?
               </span>
               <h2 className="font-heading text-[2rem] sm:text-[2.8rem] lg:text-[3.4rem] font-extrabold leading-[1.08] tracking-tight">
                 Need a page that brings in customers?
@@ -585,7 +585,7 @@ export default function App() {
                     Tell us what you want to build
                   </h3>
                   <p className="text-[var(--mute)] text-xs mt-1">
-                    Fill in your details and we’ll chat with you right away with estimates and examples.
+                    Fill in your details (packages start from #15000) and we’ll chat with you right away with estimates and examples.
                   </p>
                 </div>
 
@@ -638,10 +638,10 @@ export default function App() {
 
                   <div>
                     <label className="block text-xs font-semibold mb-1 text-[var(--mute)]">
-                      Estimated Budget Range
+                      Estimated Budget (Starting at #15000)
                     </label>
                     <div className="grid grid-cols-3 gap-2">
-                      {["$300 – $600", "$600 – $1,500", "$1,500+"].map((tier) => (
+                      {["#15000", "#30000", "#50000+"].map((tier) => (
                         <button
                           type="button"
                           key={tier}
